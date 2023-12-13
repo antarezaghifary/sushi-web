@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav x-data="{navOpen : true}">
+      <div class="container mx-auto">
+        <div class="flex items-center justify-between py-9 px-4">
+          <img src="../public/assets/Logo-sushi.svg" class="order-1 sm:order-2" />
+          <img @click="navOpen = !navOpen" src="../public/assets/hamburger.svg" class="lg:hidden order-2 sm:order-1"/>
+          <div class="order-2 hidden lg:block">
+            <ul class="flex gap-16">
+              <li class="text-textnav font-bold text-sm font-Circular">
+                <a href="">Home</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Foods</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Services</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">About us</a>
+              </li>
+              <li class="text-textnav font-bold text-sm font-Circular opacity-50">
+                <a href="">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="order-3 hidden sm:block">
+            <button
+            class="grow bg-btn_orange px-8 py-4 font-bold text-textnav rounded-3xl text-sm text-white"
+          >
+            Download App
+          </button>
+          
+          </div>
+        </div>
+      </div>
+      <div x-show="navOpen"
+        x-data="{open : false}"
+        class="z-50 fixed bottom-0 right-0 left-0 p-4 border lg:hidden bg-white"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+      >
+        <ul class="flex justify-between">
+          <li>
+            <a
+              href=""
+              class="flex justify-center flex-col items-center gap-1 text-purple"
+            >
+              <ion-icon name="home-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Home</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="albums-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Foods</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="sparkles-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-bold">Services</span>
+            </a>
+          </li>
+          <li>
+            <button
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="call-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-normal">About us</span>
+            </a>
+          </li>
+          <li>
+
+            
+              <button
+                class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+              >
+                <ion-icon name="call-outline" class="text-2xl"></ion-icon>
+                <span class="text-base font-normal">Contact us</span>
+              </a>
+            </li>
+            <li>
+            <button
+              @click="open = !open"
+            
+              class="flex justify-center flex-col items-center gap-1 text-textnav opacity-50"
+            >
+              <ion-icon name="menu-outline" class="text-2xl"></ion-icon>
+              <span class="text-base font-normal">More</span>
+            </a>
+          </li>
+        </ul>
+        <div
+          x-show="open"
+          class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 w-3/4"
+          x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90"
+        >
+          <button
+            class="grow bg-white px-8 py-4 font-bold text-textnav rounded-3xl text-sm"
+          >
+            Login
+          </button>
+          <button
+            class="grow bg-purple px-8 py-4 font-bold text-white rounded-3xl text-sm"
+          >
+            Sign Up
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Navigation -->
+
+
+    <!-- Hero -->
+    <section>
+      <div class="container-fluid">
+        <div class="grid grid-cols-12 gap-4 ">
+          <div class="col-span-4 lg:block hidden">
+              <img src="../public/assets/HeroImage.png" alt="">
+          </div>
+
+          <div class="lg:col-span-8 col-span-12 flex flex-col gap-8 justify-center bg-bg_hero px-20">
+            <p class="text-5xl">Savor the Best Sushi in Town at Our Authentic <span-1 class="text-btn_orange text-5xl">Japanese Restaurant</span-1></p>
+            <span >Indulge in the Finest Sushi Rolls, Sashimi, and Nigiri Made by Our Skilled Sushi Chefs</span>
+
+            <div class="flex flex-row">
+              <button
+            class=" bg-btn_green px-8 py-4 font-bold text-textnav rounded-3xl text-sm text-white"
+          >
+            Download App
+          </button>
+
+
+          <button class="px-8 py-4 text-pink flex-row gap-2 text-sm font-bold drop-shadow-sm-shadow rounded-full mx-auto lg:mx-0  items-center justify-center text-center">
+            <ion-icon name="alarm" class="text-btn_orange text-2xl"></ion-icon>
+           <span> Explore the world!</span>
+            
+          </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero -->
+
+    <!-- About Us -->
+    <section>
+      <div class="container-fluid">
+        <div class="grid grid-cols-12 gap-4 mt-40 justify-between">
+          
+
+          <div class="lg:col-span-8 col-span-12 flex flex-col gap-8 justify-center bg-bg_hero px-20">
+            <span class="text-btn_orange">About Us / 使用について</span>
+            <p class="text-5xl">Our Mission: Bringing the <span-1 class="text-btn_orange text-5xl">True Taste of Japan</span-1> to Your Plate</p>
+            <span class="text-black opacity-50">Experience the Art of Sushi-Making Through Our Passionate Commitment to Quality, Authenticity, and Innovation.</span>
+
+            <div class="flex flex-row gap-10">
+              <button
+            class=" bg-black px-8 py-4 font-bold text-textnav rounded-3xl text-sm text-white w-full"
+          >
+            <h1>14K+</h1> 
+            <span>Happy Customer</span>
+            
+          </button>
+
+
+          <div class="flex flex-row items-center w-full">
+            <img src="../public/assets/thuklife.png" alt="" class="w-[55px] h-[55px] " >
+            <span class="ml-4">“Taste of the sushi dishes are really very delicious.”</span>
+          </div>
+            
+          </button>
+            </div>
+          </div>
+
+          <div class="col-span-4 lg:block hidden justify-end">
+            <img src="../public/assets/AboutImage.png" alt="" class="w-[561px] h-[578px]">
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us -->
+
+
+    <!-- Our Menu -->
+
+    <section>
+      <div class="container-fluid">
+        <div class="grid grid-cols-12 gap-4 mt-40">
+          
+          <div class="col-span-4 lg:block hidden">
+            <img src="../public/assets/HeroOurMenu.png" alt="">
+        </div>
+
+          <div class="lg:col-span-8 col-span-12 flex flex-col gap-8 justify-center bg-bg_hero px-20">
+            <span class="text-btn_orange">Our Menu / メニュー</span>
+            <p class="text-5xl">Discover Our Mouth-Watering Menu of Exquisite <span-1 class="text-btn_orange text-5xl">Sushi Delights</span-1></p>
+            <span class="text-black opacity-50"> From Classic California Rolls to Creative Fusion Specials, Our Menu Offers a Taste of Tradition and Innovation in Every Bite.</span>
+
+            <div class="flex flex-row gap-10 sm:flex-col">
+              
+              <div class="flex flex-row ">
+                <div class="flex flex-row bg-white p-4 w-full items-center ">
+                  <div class="bg-bg_hero p-5">
+                    <img src="../public/assets/OriginalSushi.png" alt="" class="w-[6-px] h-[53px]">
+                  </div>
+                    <div class="flex flex-col p-5">
+                      <h1>Original Sushi</h1>
+                      <div class="flex flex-row">
+                      <span>$25.00</span>
+                      <div class="flex flex-row w-full ml-12">
+                        <img src="../public/assets/start.svg" alt="">
+                      <span>4.5</span>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="flex flex-row ">
+                <div class="flex flex-row bg-white p-4 w-full items-center ">
+                  <div class="bg-bg_hero p-5">
+                    <img src="../public/assets/OriginalSushi.png" alt="" class="w-[6-px] h-[53px]">
+                  </div>
+                    <div class="flex flex-col p-5">
+                      <h1>Original Sushi</h1>
+                      <div class="flex flex-row">
+                      <span>$25.00</span>
+                      <div class="flex flex-row w-full  ml-12">
+                        <img src="../public/assets/start.svg" alt="">
+                      <span>4.5</span>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+              </div>
+            
+          </button>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Menu -->
+
+
+    <!-- Join Member -->
+    <section>
+      <div class="container-fluid">
+        <div class="grid grid-cols-12 gap-4 mt-40 justify-between">
+          
+
+          <div class="lg:col-span-8 col-span-12 flex flex-col gap-8 justify-center bg-bg_hero px-20">
+            <span class="text-btn_orange">Join Member / 加入 メンバー</span>
+            <p class="text-5xl">Join Our Member and Get <span-1 class="text-btn_orange text-5xl">Discounts</span-1> Up To <span-1 class="text-btn_orange text-5xl"> 65%</span-1></p>
+            <span class="text-black opacity-50">Sign up today and start enjoying amazing benefits, including discounts on your favorite sushi rolls and access to special promotions and events.</span>
+
+            <div class="flex flex-row gap-10">
+              <div class="flex-row">
+                <div class="bg-white rounded-lg">
+                  <div class="flex flex-warp justify-between md:flex-row">
+                    <input type="email"
+                      class="m-1 p-3 md:w-96 appearance-none border-none text-gray-700 text-sm font-medium focus:outline-none focus:border-white focus:rounded focus:placeholder-transparent"
+                      placeholder="Enter your email" aria-label="Enter your email">
+                    <button
+                      class="w-full text-sm m-1 p-2 bg-btn_green rounded-lg font-semibold lg:w-auto hover:bg-gray-700 text-white">Subscribe</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-4 lg:block hidden justify-end">
+            <img src="../public/assets/AboutImage.png" alt="" class="w-[561px] h-[578px]">
+        </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Join Member -->
+
+    <!-- Download APP -->
+
+      <section>
+        <div class="container-fluid">
+          <div class="grid grid-cols-12 my-20 bg-bg_hero">
+            <div class="col-span-8 text-center justify-center items-center w-full  justify-self-center mx-auto col-start-3 py-[65px]">
+            <span class="text-btn_orange">Join Member / 加入 メンバー</span>
+            <p class="text-5xl">Join Our Member and Get <span-1 class="text-btn_orange text-5xl">Discounts</span-1> Up To <span-1 class="text-btn_orange text-5xl"> 65%</span-1></p>
+            <span class="text-black opacity-50">Sign up today and start enjoying amazing benefits, including discounts on your favorite sushi rolls and access to special promotions and events.</span>
+            </div>
+            <div class="col-span-12 px-20 ">
+              <div class="flex lg:flex-row sm:flex-col gap-12 items-center">
+                <img src="../public/assets/ImgApp.png" alt="" class="sm:order-1">
+                <div class="flex flex-col gap-8 sm:order-2">
+                  <h1>Available in:</h1>
+                  <img src="../public/assets/AppStore.png" alt="">
+                  <img src="../public/assets/GooglePlay.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Download APP -->
+
+    <!-- footer -->
+
+    <section>
+      <div class="container-fluid">
+        <div class="grid grid-cols-12 px-24 py-10">
+          <div class="col-span-12 flex flex-col gap-10">
+
+            <div class="flex flex-row  justify-between w-full">
+              <div class="flex flex-col">
+                <h1 class="font-bold">Product</h1>
+                <p class="mt-4">All Product</p>
+                <p class="mt-2">Sushi</p>
+                <p  class="mt-2">Premium</p>
+              </div>
+
+              <div class="flex flex-col">
+                <h1 class="font-bold">Information</h1>
+                <p class="mt-4">FAQ</p>
+                <p class="mt-2">Blog</p>
+                <p  class="mt-2">Support</p>
+              </div>
+
+              <div class="flex flex-col">
+                <h1 class="font-bold">Company</h1>
+                <p class="mt-4">About us</p>
+                <p class="mt-2">Careers</p>
+                <p  class="mt-2">Contact us</p>
+                <p  class="mt-2">Kumashop</p>
+              </div>
+
+              <div class="flex flex-col">
+                <h1 class="font-bold">Social</h1>
+                <p class="mt-4">Facebook</p>
+                <p class="mt-2">Instagram</p>
+                <p  class="mt-2">Twitter</p>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="flex flex-row justify-between w-full items-center">
+
+                <img src="../public/assets/Logo-sushi.svg" alt="">
+
+                <div class="flex flex-row">
+                  <h1>Terms</h1>
+                  <h1>Privacy</h1>
+                  <h1>Cookies</h1>
+                </div>
+
+                <div class="flex flex-row">
+                  <img src="../public/assets/FacebookIcon.png" alt="">
+                  <img src="../public/assets/Instagram.png" alt="">
+                  <img src="../public/assets/TwitterIcon.png" alt="">
+                </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+  </body>
+</html>

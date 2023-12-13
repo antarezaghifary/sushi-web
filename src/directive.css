@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Roboto;
+    src: url();
+  }
+}
+
+h1 {
+  font-family: roboto;
+}
+
+span {
+  font-family: poppins;
+}
+
+a {
+  font-family: poppins;
+}
+
+p {
+  font-family: nunito;
+}
+
+span-1 {
+  font-family: nunito;
+}
